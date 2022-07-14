@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning 2</title>
+</head>
+<body>
+    <script>
+        
+        function add(x){
+            return x + 7;
+        }
+
+        function multiply(x, y){
+            return x * y;
+        }
+
+        function capitalize(x){
+            var temp = [];
+            temp[0] = x.charAt(0).toUpperCase();
+            
+            for (var i = 1; i < x.length; i++){
+                temp[i] = x.charAt(i).toLowerCase();
+            }
+
+            return temp.join("");
+        }
+
+        function lastLetter(x){
+            var temp = x.length;
+            return x[temp - 1];
+        }
+
+        console.log(add(-8.11));
+        console.log(multiply(3.3, 6));
+        console.log(capitalize("sUiREyha"));
+        console.log(lastLetter("Hammer"));
+
+        //Pays well to have come from C++ amirite? Sure I am. :}
+    </script>
+    
+</body>
+</html>
