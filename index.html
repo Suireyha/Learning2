@@ -10,36 +10,49 @@
 <body>
     <script>
         
-        function add(x){
-            return x + 7;
-        }
+        function fizzBuzz(length){
 
-        function multiply(x, y){
-            return x * y;
-        }
+            for (var i = 0; i <= (length); i++){
+                var fizz = false;
+                var buzz = false;
+                var dThree = i;
+                var dFive = i;
 
-        function capitalize(x){
-            var temp = [];
-            temp[0] = x.charAt(0).toUpperCase();
-            
-            for (var i = 1; i < x.length; i++){
-                temp[i] = x.charAt(i).toLowerCase();
+                switch(dThree % 3 == 0){
+                    case true:
+                        fizz = true;
+                        break;
+                    default: 
+                        fizz = false;
+                }
+
+                switch(dFive % 5 == 0){
+                    case true: 
+                        buzz = true;
+                        break;
+                    default: 
+                        buzz = false;
+                }
+
+                if (fizz && buzz){
+                    console.log("FizzBuzz! ");
+                }
+                else if(fizz){
+                    console.log("Fizz ");
+                }
+                else if (buzz){
+                    console.log("Buzz ");
+                }
+                else{
+                    console.log(i + " ");
+                }
             }
-
-            return temp.join("");
         }
 
-        function lastLetter(x){
-            var temp = x.length;
-            return x[temp - 1];
-        }
+        fizzBuzz(prompt("Enter a number:"));
 
-        console.log(add(-8.11));
-        console.log(multiply(3.3, 6));
-        console.log(capitalize("sUiREyha"));
-        console.log(lastLetter("Hammer"));
-
-        //Pays well to have come from C++ amirite? Sure I am. :}
+        //I actually like my spaghetti code thank you very much.
+        
     </script>
     
 </body>
