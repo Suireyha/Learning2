@@ -1,59 +1,62 @@
 //Initializations
-const first = document.getElementById('firstBtn');
-const uni = document.getElementById('universal');
-const wordArr = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-let red = 204;
-let blue = 80;
-let green = 80;
-let wordCounter = 0;
-let colCount = 0;
-
+const notA = document.getElementById('notA');
+const notS = document.getElementById('notS');
+const notD = document.getElementById('notD');
+const notF = document.getElementById('notF');
+const notJ = document.getElementById('notJ');
+const notK = document.getElementById('notK');
+const notL = document.getElementById('notL');
+const notSem = document.getElementById('not;');
+const left = document.getElementById('left');
 //Functions
-function generateBtn(){
-    let newB = document.createElement('button');
-    newB.setAttribute('class', 'btn');
-    newB.style.backgroundColor = 
-    "rgb(" + (+red) + "," + (+green) + "," + (+blue) +")";
-    newB.textContent = wordArr[wordCounter];
-    uni.appendChild(newB);
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-    //Spectrum cycle maths
-    switch (colCount)
-    {
-        case 0:
-            green += 20;
+async function anima(key){
+    key.setAttribute('style', 'background-color: #63ffa9; box-shadow: 0 0 25px #63ffa9; color: #111;');
+    await sleep(275);
+    key.setAttribute('style', 'background-color: transparent; box-shadow: none; color: white;');
+    
+}
+
+function playNote(key){
+    switch (key.key){
+        case 'a':
+            new Audio("./assets/do.wav").play();
+            anima(notA);
             break;
-        case 1:
-            red += -20;
+        case 's':
+            new Audio("./assets/re.wav").play();
+            anima(notS);
             break;
-        case 2:
-            blue += 20;
+        case 'd':
+            new Audio("./assets/mi.wav").play();
+            anima(notD);
             break;
-        case 3:
-            green -= 20;
+        case 'f':
+            new Audio("./assets/fa.wav").play();
+            anima(notF);
             break;
-        case 4:
-            red += 20;
+        case 'j':
+            new Audio("./assets/so.wav").play();
+            anima(notJ);
             break;
-        case 5:
-            blue -= 20;
+        case 'k':
+            new Audio("./assets/la.wav").play();
+            anima(notK);
             break;
-        default:
-            colCount = 0;
-            red = 200;
-            green = 80;
-            blue = 80;
+        case 'l':
+            new Audio("./assets/bass.wav").play();
+            anima(notL);
             break;
+        case ';':
+            new Audio("./assets/bass2.wav").play();
+            anima(notSem);
+            break;
+            
     }
-
-    //Every 6 iterations, change col direction
-    if (wordCounter%6 == 0){
-        colCount++;
-    }
-
-
-    wordCounter++;
 }
 
 //Event -> Calls
-first.addEventListener('click', ()=>{generateBtn();});
+document.onkeydown = (e)=>{playNote(e)};
