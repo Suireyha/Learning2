@@ -1,59 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="./style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning 2</title>
 </head>
+
 <body>
-    <script>
+
+    <div class="other">
+    <button class="btn" id="firstBtn">Gen</button>
+    </div>
+
+    <div id="universal">
         
-        function fizzBuzz(length){
 
-            for (var i = 0; i <= (length); i++){
-                var fizz = false;
-                var buzz = false;
-                var dThree = i;
-                var dFive = i;
 
-                switch(dThree % 3 == 0){
-                    case true:
-                        fizz = true;
-                        break;
-                    default: 
-                        fizz = false;
-                }
 
-                switch(dFive % 5 == 0){
-                    case true: 
-                        buzz = true;
-                        break;
-                    default: 
-                        buzz = false;
-                }
 
-                if (fizz && buzz){
-                    console.log("FizzBuzz! ");
-                }
-                else if(fizz){
-                    console.log("Fizz ");
-                }
-                else if (buzz){
-                    console.log("Buzz ");
-                }
-                else{
-                    console.log(i + " ");
-                }
-            }
-        }
+    </div>
 
-        fizzBuzz(prompt("Enter a number:"));
-
-        //I actually like my spaghetti code thank you very much.
-        
-    </script>
-    
 </body>
+
 </html>
