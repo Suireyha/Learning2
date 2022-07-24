@@ -47,11 +47,11 @@ function playNote(key){
             anima(notK);
             break;
         case 'l':
-            new Audio("./assets/bass.wav").play();
+            new Audio("./assets/ti.wav").play();
             anima(notL);
             break;
         case ';':
-            new Audio("./assets/bass2.wav").play();
+            new Audio("./assets/doOc.wav").play();
             anima(notSem);
             break;
             
