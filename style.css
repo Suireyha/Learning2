@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body{
+    transition:all 1s;
     overflow-y: hidden;
     background-color: #1E2026;
     height: 100vh;
@@ -34,4 +35,21 @@ body{
     background-color: #63ffa9;
     color: #111;
     box-shadow: 0 0 25px #63ffa9;
+}
+
+#lightMode{
+    align-self: flex-start;
+    margin: 10px 0px 0px 15px;
+    width: 50px;
+    height: 25px;
+    border-radius: 10px;
+    box-shadow: none;
+    border-style: solid;
+    border-color: white;
+    background-color: transparent;
+}
+
+#moonIcon{
+    color: white;
+    transition:all .1s;
 }

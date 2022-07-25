@@ -8,15 +8,33 @@ const notK = document.getElementById('notK');
 const notL = document.getElementById('notL');
 const notSem = document.getElementById('not;');
 const left = document.getElementById('left');
+const right = document.getElementById('right');
+const bod = document.querySelector('body');
+const circles = document.getElementsByClassName('btn');
+const lightSwitch = document.getElementById('lightMode');
+const icon = document.getElementById('moonIcon');
+
+var lightMode = false;
+
 //Functions
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function anima(key){
-    key.setAttribute('style', 'background-color: #63ffa9; box-shadow: 0 0 25px #63ffa9; color: #111;');
-    await sleep(275);
-    key.setAttribute('style', 'background-color: transparent; box-shadow: none; color: white;');
+    if (!lightMode){
+        key.setAttribute('style', 'background-color: #63ffa9; box-shadow: 0 0 25px #63ffa9; color: #111;');
+        bod.setAttribute('style', 'box-shadow: 0 0 200px #31ffa4);')
+        await sleep(275);
+        key.setAttribute('style', 'background-color: transparent; box-shadow: none; color: white;');
+        bod.setAttribute('style', 'box-shadow: none;');
+    }
+
+    else{
+        key.setAttribute('style', 'background-color: black; box-shadow: 0 0 15px black; color: white; border-color: white;');
+        await sleep(275);
+        key.setAttribute('style', 'background-color: transparent; box-shadow: none; color: black; border-color: black;');
+    }
     
 }
 
@@ -58,5 +76,36 @@ function playNote(key){
     }
 }
 
+function modSwitch(){
+    if (!lightMode){
+        lightMode = true;
+        bod.style.backgroundColor = 'white';
+
+        lightSwitch.style.borderColor = 'black';
+        for (var i = 0; i < 8; i++){
+            circles[i].setAttribute('style', 'border-color: black; color: black;');
+        }
+
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        icon.style.color = 'black';
+    }
+
+    else{
+        lightMode = false;
+        bod.style.backgroundColor = '#1E2026';
+
+        lightSwitch.style.borderColor = 'white';
+        for (var i = 0; i < 8; i++){
+            circles[i].setAttribute('style', 'border-color: #63ffa9; color: white;');
+        }
+
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        icon.style.color = 'white';
+    }
+}
+
 //Event -> Calls
 document.onkeydown = (e)=>{playNote(e)};
+lightSwitch.addEventListener('click', ()=>{modSwitch();});
